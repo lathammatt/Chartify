@@ -1,6 +1,7 @@
-lib/bower_components
+public/lib/bower_components
 .DS_Store
-lib/node_modules
-styles/
-app/fbgetter.js
-app/values/firebasecreds.js
+public/lib/node_modules
+public/styles/
+private
+node_modules
+spotnode/
