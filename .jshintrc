@@ -1,0 +1,21 @@
+{
+  "predef": [ "document", "console", "angular"],
+  "esversion": 6,
+  "globalstrict": true,
+  "curly": true,
+  "eqeqeq": true,
+  "undef": true,
+  "unused": true,
+  "globals": {
+    "firebase": true,
+    "describe": false,
+	  "it": false,
+	  "expect": false,
+	  "before": false,
+	  "beforeEach": false,
+	  "after": false,
+	  "afterEach": false,
+    "jasmine": false,
+    "app": true,
+   "$": true }
+}
