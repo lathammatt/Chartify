@@ -17,5 +17,8 @@
 	  "afterEach": false,
     "jasmine": false,
     "app": true,
-   "$": true }
+    "$": true, 
+    "window": true,
+    "Handlebars": true,
+    "alert": true}
 }

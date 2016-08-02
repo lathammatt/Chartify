@@ -5,3 +5,4 @@ public/styles/
 private
 node_modules
 spotnode/
+public/lib/.sublime-gulp.cache
