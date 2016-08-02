@@ -20,5 +20,9 @@
     "$": true, 
     "window": true,
     "Handlebars": true,
+    "errorCode": true,
+    "errorMessage": true,
+    "email": true,
+    "credential": true,
     "alert": true}
 }

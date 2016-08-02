@@ -4,7 +4,7 @@ app.factory("AuthFactory", function() {
 
 
    let currentUserId = null;
-   let provider = new firebase.auth();
+   let provider = new firebase.auth.GoogleAuthProvider();
 
    firebase.auth().onAuthStateChanged(function(user) {
       if (user) {

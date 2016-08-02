@@ -3,18 +3,18 @@
 app.controller("NavCtrl", function($scope) {
    $scope.navItems = [{
       name: "Top Albums",
-      url: "#/"
+      url: ""
    }, {
       name: "Top Songs",
-      url: "#/"
+      url: ""
    }, {
       name: "Current Year",
-      url: "#/"
+      url: ""
    }, {
       name: "Unstarred Songs",
-      url: "#/"
+      url: ""
    }, {
       name: "Logout",
-      url: "#/"
-   }],
+      url: ""
+   }];
 });
