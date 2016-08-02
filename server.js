@@ -16,7 +16,7 @@ var cookieParser = require('cookie-parser');
 var client_id = spotifycreds.getClientId(); // Your client id
 var client_secret = spotifycreds.getClientSecret(); // Your secret
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
-
+// var scopes = "playlist-read-private playlist-modify-private playlist-read-public playlist-modify-public user-top-read";
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -56,12 +56,13 @@ app.get('/getToken', function(req, res) {
 
 app.get('/login', function(req, res) {
 
-   var state = generateRandomString(16);
-   res.cookie(stateKey, state);
+      var state = generateRandomString(16);
+      res.cookie(stateKey, state);
 
-   // your application requests authorization
-   var scope = 'user-read-private user-read-email';
-   res.redirect('https://accounts.spotify.com/authorize?' +
+      // your application requests authorization
+      var scope = 'user-read-private user-read-email user-top-read playlist-read-private playlist-modify-private;
+   res.redirect('
+      https: //accounts.spotify.com/authorize?' +
       querystring.stringify({
          response_type: 'code',
          client_id: client_id,
