@@ -11,7 +11,10 @@
 <body ng-app="ChartApp">
 	<!-- <div ng-include="lib/partials/navbar.html"> -->
 	<!-- <div ng-include="partials/sidebar.html"> -->
-	<div ng-view="/">
+	<div class="container">
+		<div ng-view="/">
+		
+		</div>
 	</div>
 	
 
@@ -25,7 +28,9 @@
 	<!-- application scripts -->
 	<script src="app/app.js"></script>
 	<!-- factories -->
+	<script src="app/values/firebasecreds.js"></script>
 	<script src="app/factories/AuthFactory.js"></script>
+
 	<!-- controllers -->
 	<script src="app/controllers/navctrl.js"></script>
 	<script src="app/controllers/loginctrl.js"></script>

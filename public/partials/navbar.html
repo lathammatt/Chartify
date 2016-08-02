@@ -1,11 +1,14 @@
-<nav class="navwrapper" ng-controller="NavCtrl">
-	<div class="row">
-		<div class="col s9">
-			<ul id="nav-mobile" class="left hide-on-med-and-down" ng-repeat="link in navItems">
-				<li><a href="{{link.url}}">{{link.name}}</a></li>
-			</ul>
-		</div>
-		<div class="col s3" id="logo">
-			Streamboard
-		</div>
-	</div>
+<div class="navbar fixed">
+	<nav class="navwrapper #26a69a teal lighten-1" ng-controller="NavCtrl">
+		<div class="row">
+			<div class="col s8">
+				<ul id="nav-mobile" class="left hide-on-med-and-down" ng-repeat="link in navItems">
+					<li><a href="{{link.url}}">{{link.name}}</a></li>
+				</ul>
+			</div>
+			<div class="col s4" id="logo">
+				<h4>Streamboard</h4>
+			</div>
+		</div> <!--row -->
+	</nav>
+</div>

@@ -11,9 +11,14 @@ app.config(function($routeProvider, FBCreds) {
    firebase.initializeApp(authConfig);
 
    $routeProvider.
-   when('/', {
-      templateUrl: 'index.html',
-      controller: ''
+   when('/login', {
+      templateUrl: 'partials/login.html',
+      controller: 'LoginCtrl'
    }).
+   when('/', {
+      templateUrl: 'partials/navbar.html',
+      controller: 'NavCtrl'
+   }).
+
    otherwise("/");
 });
