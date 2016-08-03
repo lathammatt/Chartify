@@ -16,9 +16,9 @@ app.config(function($routeProvider, FBCreds) {
       controller: 'LoginCtrl'
    }).
    when('/', {
-      templateUrl: 'partials/navbar.html',
-      controller: 'NavCtrl'
+      templateUrl: 'partials/mainbody.html',
+      controller: 'mainctrl'
    }).
 
-   otherwise("/");
+   otherwise("/login");
 });
