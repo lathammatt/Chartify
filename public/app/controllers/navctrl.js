@@ -2,6 +2,9 @@
 
 app.controller("NavCtrl", function($scope) {
    $scope.navItems = [{
+      name: "Login",
+      url: "#/login"
+   }, {
       name: "Top Albums",
       url: ""
    }, {
@@ -18,6 +21,6 @@ app.controller("NavCtrl", function($scope) {
       url: "/login"
    }, {
       name: "Logout",
-      url: ""
+      url: "#/logout"
    }];
 });

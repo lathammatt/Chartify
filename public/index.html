@@ -8,6 +8,12 @@
 	<link rel="stylesheet" href="styles/main.css">
 	<link type="text/css" rel="stylesheet" href="lib/bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
 	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+		<!-- third party -->
+	<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="lib/bower_components/materialize/dist/js/materialize.min.js"></script>
+	<script src="lib/bower_components/angular/angular.min.js"></script>
+	<script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+	<script src="lib/bower_components/firebase/firebase.js"></script>
 </head>
 <body ng-app="ChartApp">
 		<!-- all the spotify login material -->
@@ -22,8 +28,7 @@
 						</ul>
 							<div id="user-profile"></div>
 					</div>
-<!-- 					<div id="user-profile">
-		        </div> -->
+
 					<div class="col s2 center" id="logo">
 						<h4>Chartify</h4>
 					</div>
@@ -46,11 +51,11 @@
     </div>
 
 
-    <script src="/app/app.js" type="text/javascript" charset="utf-8" async defer></script>
+    <!-- <script src="/app/app.js" type="text/javascript" charset="utf-8" async defer></script> -->
 
     
     <script id="user-profile-template" type="text/x-handlebars-template">
-          <img width="50" src="{{images.0.url}}" />
+          <img width="30" src="{{images.0.url}}" />
       {{display_name}}
 <!--         <div>
         </div> -->
@@ -75,8 +80,11 @@
       </dl>
     </script> -->
 
+
+
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
     <script>
       (function() {
 
@@ -165,12 +173,7 @@
 	
 
 
-	<!-- third party -->
-	<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="lib/bower_components/materialize/dist/js/materialize.min.js"></script>
-	<script src="lib/bower_components/angular/angular.min.js"></script>
-	<script src="lib/bower_components/angular-route/angular-route.min.js"></script>
-	<script src="lib/bower_components/firebase/firebase.js"></script>
+
 	<!-- application scripts -->
 	<script src="app/app.js"></script>
 	<!-- factories -->
@@ -180,6 +183,7 @@
 
 	<!-- controllers -->
 	<script src="app/controllers/loginctrl.js"></script>
+	<script src="app/controllers/logoutctrl.js"></script>
 	<script src="app/controllers/navctrl.js"></script>
 	<script src="app/controllers/mainctrl.js"></script>
 
