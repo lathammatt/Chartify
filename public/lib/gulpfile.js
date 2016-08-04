@@ -35,7 +35,7 @@ gulp.task('sass', function() {
       }))
       // write sourcemaps to a specific directory
       // give it a file and save
-      .pipe(gulp.dest('../styles'));
+      .pipe(gulp.dest('../public/styles'));
 });
 
 gulp.task('watch', function() {

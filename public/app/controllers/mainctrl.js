@@ -12,8 +12,10 @@ app.controller("MainCtrl", function($scope, DataFactory) {
    //       });
    // } else {}
 
-   DataFactory.getAlbums();
-
+   DataFactory.getAlbums()
+      .then((object) => {
+         $scope.chartdata = object;
+      });
 
 
 

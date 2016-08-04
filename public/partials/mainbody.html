@@ -1,9 +1,9 @@
 <!-- <div ng-include="partials/navbar.html"></div> -->
-<h1>Checking</h1>
-<div class="row">
-	<div class="col s12">
+<!-- <h1>Checking</h1> -->
+<div class="row"  ng-repeat="info in chartdata">
+	<div>
 			<!-- ng-repeat through all -->
-		<div id="album" ng-repeat="info in chartdata">
+		<div id="album {{info.id}}">
 			<!-- current rank on chart -->
 			<div class="col s1 rank">
 			</div>
@@ -14,19 +14,21 @@
 			<p>{{info.release}}</p>
 			</div>
 			<!-- album artwork -->
-			<div class="col s3 artwork">
-			{{info.artwork}}
+			<div class="col s4 artwork">
+			<img ng-src="{{info.artwork}}">
 			</div>
 			<!-- track ratings -->
-			<div class="col s2 ratings">
+			<div class="col s1 ratings">
 
 			</div>
 			<!-- track ratings -->
-			<div class="col s1 tracks">
-			{{info.songs.number}}
-			</div>
-			<div class="col s3 title">
-			{{info.songs.name}}
+			<div class="col s4" ng-repeat="items in info.songs">
+				<div class="col s1 tracks">
+				{{items.number}}
+				</div>
+				<div class="col s11 title">
+				{{items.name}}
+				</div>
 			</div>
 		</div>
 	</div>

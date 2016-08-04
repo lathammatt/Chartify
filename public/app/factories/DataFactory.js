@@ -43,7 +43,7 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http) {
 
                   obj.id = returnedData.albums[i].id;
                   console.log("albumid", returnedData.albums[i].id);
-                  obj.artwork = returnedData.albums[i].images[0].url;
+                  obj.artwork = returnedData.albums[i].images[1].url;
                   console.log("picture", returnedData.albums[i].images[0].url);
                   obj.albumname = returnedData.albums[i].name;
                   console.log("albumname", returnedData.albums[i].name);
