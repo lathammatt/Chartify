@@ -7,21 +7,41 @@
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="styles/main.css">
 	<link type="text/css" rel="stylesheet" href="lib/bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
 </head>
 <body ng-app="ChartApp">
 		<!-- all the spotify login material -->
-    <div class="container">
+    <div>
+
+    <div class="navbar fixed">
+			<nav class="navwrapper #26a69a teal lighten-1" ng-controller="NavCtrl">
+				<div class="row">
+					<div class="col s10">
+						<ul id="nav-mobile" class="center hide-on-med-and-down" ng-repeat="link in navItems">
+							<li><a href="{{link.url}}">{{link.name}}</a></li>
+						</ul>
+							<div id="user-profile"></div>
+					</div>
+<!-- 					<div id="user-profile">
+		        </div> -->
+					<div class="col s2 center" id="logo">
+						<h4>Chartify</h4>
+					</div>
+				</div> 
+			</nav>
+		</div>
+
+
       <div id="login">
         <!-- <h1>This is an example of the Authorization Code flow</h1> -->
-        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+        <!-- <a href="/login" class="btn btn-primary">Log in with Spotify</a> -->
       </div>
       <div id="loggedin">
-        <div id="user-profile">
+<!--         <div id="user-profile">
         </div>
         <div id="oauth">
-        </div>
-        <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
+        </div> -->
+        <!-- <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button> -->
       </div>
     </div>
 
@@ -30,32 +50,30 @@
 
     
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <h1>Logged in as {{display_name}}</h1>
-      <div class="media">
-        <div class="pull-left">
-          <img class="media-object" width="150" src="{{images.0.url}}" />
-        </div>
-        <div class="media-body">
-          <dl class="dl-horizontal">
-            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
-            <dt>Id</dt><dd>{{id}}</dd>
+          <img width="50" src="{{images.0.url}}" />
+      {{display_name}}
+<!--         <div>
+        </div> -->
+<!--         <div class="media-body">
+          <dl class="dl-horizontal"> -->
+            <!-- <dt>Logged In:</dt><dd class="clearfix">{{display_name}}</dd> -->
+<!--             <dt>Id</dt><dd>{{id}}</dd>
             <dt>Email</dt><dd>{{email}}</dd>
             <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
             <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
             <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
-            <dt>Country</dt><dd>{{country}}</dd>
-          </dl>
-        </div>
-      </div>
+            <dt>Country</dt><dd>{{country}}</dd> -->
+<!--           </dl>
+        </div> -->
     </script>
 
-    <script id="oauth-template" type="text/x-handlebars-template">
+<!--     <script id="oauth-template" type="text/x-handlebars-template">
       <h2>oAuth info</h2>
       <dl class="dl-horizontal">
         <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
         <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}></dd>
       </dl>
-    </script>
+    </script> -->
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -80,9 +98,9 @@
             userProfileTemplate = Handlebars.compile(userProfileSource),
             userProfilePlaceholder = document.getElementById('user-profile');
 
-        var oauthSource = document.getElementById('oauth-template').innerHTML,
-            oauthTemplate = Handlebars.compile(oauthSource),
-            oauthPlaceholder = document.getElementById('oauth');
+        // var oauthSource = document.getElementById('oauth-template').innerHTML,
+        //     oauthTemplate = Handlebars.compile(oauthSource),
+        //     oauthPlaceholder = document.getElementById('oauth');
 
         var params = getHashParams();
 
@@ -95,10 +113,12 @@
         } else {
           if (access_token) {
             // render oauth info
-            oauthPlaceholder.innerHTML = oauthTemplate({
-              access_token: access_token,
-              refresh_token: refresh_token
-            });
+            // oauthPlaceholder.innerHTML = oauthTemplate({
+            //   access_token: access_token,
+            //   refresh_token: refresh_token
+              console.log("access", access_token);
+              console.log("refresh", refresh_token);
+            
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/me',
@@ -109,7 +129,7 @@
                   userProfilePlaceholder.innerHTML = userProfileTemplate(response);
 
                   $('#login').hide();
-                  $('#loggedin').show();
+                  $('#loggedin').hide();
                 }
             });
           } else {
@@ -118,25 +138,25 @@
               $('#loggedin').hide();
           }
 
-          document.getElementById('obtain-new-token').addEventListener('click', function() {
-            $.ajax({
-              url: '/refresh_token',
-              data: {
-                'refresh_token': refresh_token
-              }
-            }).done(function(data) {
-              access_token = data.access_token;
-              oauthPlaceholder.innerHTML = oauthTemplate({
-                access_token: access_token,
-                refresh_token: refresh_token
-              });
-            });
-          }, false);
+          // document.getElementById('obtain-new-token').addEventListener('click', function() {
+          //   $.ajax({
+          //     url: '/refresh_token',
+          //     data: {
+          //       'refresh_token': refresh_token
+          //     }
+          //   }).done(function(data) {
+          //     access_token = data.access_token;
+          //     oauthPlaceholder.innerHTML = oauthTemplate({
+          //       access_token: access_token,
+          //       refresh_token: refresh_token
+          //     });
+          //   });
+          // }, false);
         }
       })();
     </script>
 
-	<div ng-include="'partials/navbar.html'"></div>
+	<!-- <div ng-include="'partials/navbar.html'"></div> -->
 	<!-- <div ng-include="partials/sidebar.html"> -->
 	<div> <!-- remove container class-->
 
