@@ -2,6 +2,9 @@
 
 app.controller("NavCtrl", function($scope) {
    $scope.navItems = [{
+      name: "Login",
+      url: "#/login"
+   }, {
       name: "Top Albums",
       url: ""
    }, {
@@ -14,7 +17,10 @@ app.controller("NavCtrl", function($scope) {
       name: "Unstarred Songs",
       url: ""
    }, {
+      name: "Connect to Spotify",
+      url: "/login"
+   }, {
       name: "Logout",
-      url: ""
+      url: "#/logout"
    }];
 });

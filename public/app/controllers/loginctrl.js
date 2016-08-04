@@ -1,7 +1,6 @@
 "use strict";
 
-app.controller("LoginCtrl", function($scope, $location, AuthFactory) {
-
+app.controller("LogInCtrl", function($scope, $location, AuthFactory) {
 
 
    $scope.login = function() {
@@ -11,7 +10,7 @@ app.controller("LoginCtrl", function($scope, $location, AuthFactory) {
             var user = result.user.uid;
             console.log("logged in ", user);
             // Load to dos?
-            $location.path("/");
+            $location.path("/main");
             $scope.$apply();
          }).catch(function(error) {
             // Handle Errors here.
