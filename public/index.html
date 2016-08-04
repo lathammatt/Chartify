@@ -6,6 +6,7 @@
 	<title>Chartify: A web app to rank your favorite albums</title>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="styles/main.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link type="text/css" rel="stylesheet" href="lib/bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
 	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
 		<!-- third party -->
@@ -14,9 +15,9 @@
 	<script src="lib/bower_components/angular/angular.min.js"></script>
 	<script src="lib/bower_components/angular-route/angular-route.min.js"></script>
 	<script src="lib/bower_components/firebase/firebase.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body ng-app="ChartApp">
-		<!-- all the spotify login material -->
     <div>
 
     <div class="navbar fixed">
@@ -36,6 +37,7 @@
 			</nav>
 		</div>
 
+		<!-- all the spotify login material -->
 
       <div id="login">
         <!-- <h1>This is an example of the Authorization Code flow</h1> -->
@@ -57,7 +59,7 @@
     <script id="user-profile-template" type="text/x-handlebars-template">
           <img width="30" src="{{images.0.url}}" />
       {{display_name}}
-      <a href="#" ng-click="getTopSongs()">Import Music</a>
+      <a href="#" ng-click="getTopSongs()">  Import Music</a>
 <!--         <div>
         </div> -->
 <!--         <div class="media-body">
