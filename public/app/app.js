@@ -23,5 +23,5 @@ app.config(function($routeProvider, FBCreds) {
       templateUrl: 'partials/logout.html',
       controller: 'LogOutCtrl'
    }).
-   otherwise('/');
+   otherwise('/main');
 });
