@@ -15,10 +15,10 @@ app.config(function($routeProvider, FBCreds) {
       templateUrl: 'partials/login.html',
       controller: 'LoginCtrl'
    }).
-   when('/', {
-      templateUrl: 'partials/navbar.html',
-      controller: 'NavCtrl'
+   when('/main', {
+      templateUrl: 'partials/mainbody.html',
+      controller: 'MainCtrl'
    }).
 
-   otherwise("/");
+   otherwise('/');
 });
