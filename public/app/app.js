@@ -19,10 +19,6 @@ app.config(function($routeProvider, FBCreds) {
       templateUrl: 'partials/mainbody.html',
       controller: 'MainCtrl'
    }).
-   when('/spotify', {
-      templateUrl: 'partials/spotifylogin.html',
-      controller: 'SpotCtrl'
-   }).
 
    otherwise('/');
 });
