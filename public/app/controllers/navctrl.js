@@ -14,6 +14,9 @@ app.controller("NavCtrl", function($scope) {
       name: "Unstarred Songs",
       url: ""
    }, {
+      name: "Connect to Spotify",
+      url: ""
+   }, {
       name: "Logout",
       url: ""
    }];

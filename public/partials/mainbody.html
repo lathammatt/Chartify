@@ -14,20 +14,22 @@
 			<p>{{info.release}}</p>
 			</div>
 			<!-- album artwork -->
-			<div class="col s4 artwork">
+			<div class="col s3 artwork">
 			<img ng-src="{{info.artwork}}">
 			</div>
 			<!-- track ratings -->
 			<div class="col s1 ratings">
 
 			</div>
-			<!-- track ratings -->
-			<div class="col s4" ng-repeat="items in info.songs">
-				<div class="col s1 tracks">
-				{{items.number}}
-				</div>
-				<div class="col s11 title">
-				{{items.name}}
+			<!-- tracks -->
+			<div class="col s5">
+				<div ng-repeat="items in info.songs">
+					<div class="col s1 tracks">
+					{{items.number}}
+					</div>
+					<div class="col s11 title">
+					{{items.name}}
+					</div>
 				</div>
 			</div>
 		</div>
