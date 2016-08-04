@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("MainCtrl", function($scope, DataFactory, AuthFactory) {
+app.controller("MainCtrl", function($scope, DataFactory) {
    // console.log("check");
 
    // $scope.userID = AuthFactory.getUser();
