@@ -1,25 +1,32 @@
 <!-- <div ng-include="partials/navbar.html"></div> -->
+<h1>Checking</h1>
 <div class="row">
 	<div class="col s12">
 			<!-- ng-repeat through all -->
-		<div id="album">
+		<div id="album" ng-repeat="info in chartdata">
 			<!-- current rank on chart -->
 			<div class="col s1 rank">
 			</div>
-			<!-- previous rank on chart -->
-			<div class="col s1 previous">
-			</div>
 			<!-- album title and artist -->
 			<div class="col s2 info">
+			<p>{{info.artistname}}</p>
+			<p>{{info.albumname}}</p>
+			<p>{{info.release}}</p>
 			</div>
 			<!-- album artwork -->
 			<div class="col s3 artwork">
+			{{info.artwork}}
 			</div>
 			<!-- track ratings -->
 			<div class="col s2 ratings">
+
 			</div>
 			<!-- track ratings -->
-			<div class="col s3 tracks">
+			<div class="col s1 tracks">
+			{{info.songs.number}}
+			</div>
+			<div class="col s3 title">
+			{{info.songs.name}}
 			</div>
 		</div>
 	</div>

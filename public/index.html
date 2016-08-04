@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Album Chart</title>
+	<title>Chartify: A web app to rank your favorite streamed albums</title>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="styles/main.css">
 	<link type="text/css" rel="stylesheet" href="lib/bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
 </head>
 <body ng-app="ChartApp">
-	<div ng-include="'partials/navbar.html'">
+	<div ng-include="'partials/navbar.html'"></div>
 	<!-- <div ng-include="partials/sidebar.html"> -->
 	<div class="container">
 
-		<div ng-view="/"></div>
+		<div ng-view></div>
 	</div> <!-- container -->
 	
 
@@ -29,10 +29,12 @@
 	<!-- factories -->
 	<script src="app/values/firebasecreds.js"></script>
 	<script src="app/factories/AuthFactory.js"></script>
+	<script src="app/factories/DataFactory.js"></script>
 
 	<!-- controllers -->
-	<script src="app/controllers/navctrl.js"></script>
 	<script src="app/controllers/loginctrl.js"></script>
+	<script src="app/controllers/navctrl.js"></script>
+	<script src="app/controllers/mainctrl.js"></script>
 
 </body>
 </html>
