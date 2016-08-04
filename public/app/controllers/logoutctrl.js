@@ -11,6 +11,7 @@ app.controller("LogOutCtrl", function($scope, $location, AuthFactory) {
          // need to test above coding
          console.log(AuthFactory.getUser(), "Logged out");
          $location.path("/login");
+         $scope.$apply();
       }, function(error) {
          // An error happened.
          console.log(error);

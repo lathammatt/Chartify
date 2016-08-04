@@ -18,12 +18,11 @@
 			<img ng-src="{{info.artwork}}">
 			</div>
 			<!-- track ratings -->
-			<div class="col s1 ratings">
-
-			</div>
+				
 			<!-- tracks -->
 			<div class="col s5">
 				<div ng-repeat="items in info.songs">
+					<!-- <div class="col s1 ratings" ng-include="'partials/ratings.html'"></div> -->
 					<div class="col s1 tracks">
 					{{items.number}}
 					</div>
