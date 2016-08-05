@@ -17,7 +17,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('sass', function() {
-   return gulp.src('../sass/*.scss')
+   return gulp.src('../../sass/*.scss')
       // sourcemaps + sass + error handling
       .pipe(sourcemaps.init())
       .pipe(sass({
@@ -35,8 +35,9 @@ gulp.task('sass', function() {
       }))
       // write sourcemaps to a specific directory
       // give it a file and save
-      .pipe(gulp.dest('./public/styles/main.css'));
+      .pipe(gulp.dest('../../public/styles'));
 });
+
 
 gulp.task('watch', function() {
    gulp.watch(['../app/**/*.js'], ['lint']);
