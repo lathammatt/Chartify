@@ -1,7 +1,6 @@
 "use strict";
 
-angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
-angular.module('ui.bootstrap.demo').controller('RatingDemoCtrl', function($scope) {
+app.controller('RatingDemoCtrl', function($scope) {
    $scope.rate = 1;
    $scope.max = 5;
    $scope.isReadonly = false;
@@ -26,3 +25,22 @@ angular.module('ui.bootstrap.demo').controller('RatingDemoCtrl', function($scope
       stateOff: 'glyphicon-off'
    }];
 });
+
+// app.controller('favoritesCtrl', function($scope) {
+
+
+
+//    $scope.rateSelectedAlbum = function(album, index) {
+//       if (!album.stars[index].filled) {
+//          for (let i = 0; i < index + 1; i++) {
+//             album.stars[i].filled = true
+//          }
+//       } else {
+//          for (let i = 4; i > index; --i) {
+//             album.stars[i].filled = false
+//          }
+//       }
+
+//    };
+
+// });

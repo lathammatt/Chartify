@@ -14,11 +14,13 @@
 	<script src="lib/bower_components/materialize/dist/js/materialize.min.js"></script>
 	<script src="lib/bower_components/angular/angular.min.js"></script>
 	<script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+	<script src="lib/node_modules/angular-animate/angular-animate.js"></script>
 	<script src="lib/bower_components/firebase/firebase.js"></script>
 	<script src="lib/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
 </head>
 <body ng-app="ChartApp">
     <div>
+	<!-- <div ng-include="'partials/navbar.html'"></div> -->
 
     <div class="navbar fixed">
 			<nav class="navwrapper #26a69a teal lighten-1" ng-controller="NavCtrl">
@@ -167,7 +169,6 @@
       })();
     </script>
 
-	<!-- <div ng-include="'partials/navbar.html'"></div> -->
 	<!-- <div ng-include="partials/sidebar.html"> -->
 	<div> <!-- remove container class-->
 
@@ -189,7 +190,7 @@
 	<script src="app/controllers/logoutctrl.js"></script>
 	<script src="app/controllers/navctrl.js"></script>
 	<script src="app/controllers/mainctrl.js"></script>
-	<!-- <script src="app/controllers/ratingctrl.js"></script> -->
+	<script src="app/controllers/ratingctrl.js"></script>
 
 </body>
 </html>

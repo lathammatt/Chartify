@@ -1,16 +1,23 @@
 <div class="navbar fixed">
 	<nav class="navwrapper #26a69a teal lighten-1" ng-controller="NavCtrl">
 		<div class="row">
-			<div class="col s8">
+			<div class="col s10">
 				<ul id="nav-mobile" class="center hide-on-med-and-down" ng-repeat="link in navItems">
 					<li><a href="{{link.url}}">{{link.name}}</a></li>
 				</ul>
+					<div id="user-profile"></div>
 			</div>
-			<div id="user-profile">
-        </div>
-			<div class="col s4 center" id="logo">
-				<h4 class="right-align">Chartify</h4>
+
+			<div class="col s2 center" id="logo">
+				<h4>Chartify</h4>
 			</div>
 		</div> 
 	</nav>
 </div>
+
+<script id="user-profile-template" type="text/x-handlebars-template">
+      <img width="30" src="{{images.0.url}}" />
+  {{display_name}}
+  <a href="#" ng-click="getTopSongs()">  Import Music</a>
+  </script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>

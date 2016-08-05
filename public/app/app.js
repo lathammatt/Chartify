@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("ChartApp", ['ngRoute'])
+var app = angular.module("ChartApp", ['ngRoute']) //,'ngAnimate', 'ui.bootstrap'])
    .constant('FirebaseURL', "https://albumchart-f528c.firebaseio.com/");
 
 app.config(function($routeProvider, FBCreds) {
