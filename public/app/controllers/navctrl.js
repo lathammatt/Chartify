@@ -5,16 +5,16 @@ app.controller("NavCtrl", function($scope) {
       name: "Login",
       url: "#/login"
    }, {
-      name: "Top Albums",
+      name: "Get Songs",
       url: ""
    }, {
-      name: "Top Songs",
+      name: "Save Changes",
       url: ""
    }, {
-      name: "Current Year",
+      name: "Sort Albums",
       url: ""
    }, {
-      name: "Unstarred Songs",
+      name: "Unrated",
       url: ""
    }, {
       name: "Connect to Spotify",
