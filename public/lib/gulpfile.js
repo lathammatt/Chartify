@@ -21,8 +21,8 @@ gulp.task('sass', function() {
       // sourcemaps + sass + error handling
       .pipe(sourcemaps.init())
       .pipe(sass({
-         sourceComments: true,
-         outputStyle: 'compressed' // nested || compressed
+         sourceComments: false,
+         outputStyle: 'nested' // nested || compressed
       }))
       .on('error', function() {})
       // generate .maps

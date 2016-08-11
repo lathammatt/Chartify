@@ -5,9 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Chartify: A web app to rank your favorite albums</title>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="styles/main.css">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link type="text/css" rel="stylesheet" href="lib/bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
+	<link rel="stylesheet" href="/styles/main.css">
 	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
 		<!-- third party -->
 	<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
@@ -19,10 +19,9 @@
 	<script src="lib/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
 </head>
 <body ng-app="ChartApp">
-    <div>
-	<!-- <div ng-include="'partials/navbar.html'"></div> -->
+    <div class="container">
 
-    <div class="navbar fixed">
+    <div class="navbar-fixed">
 			<nav class="navwrapper #26a69a teal lighten-1" ng-controller="NavCtrl">
 				<div class="row">
 					<div class="col s10">
@@ -36,6 +35,7 @@
 						<h4>Chartify</h4>
 					</div>
 				</div> 
+				<!-- <div ng-include="'partials/sidebar.html'"></div> -->
 			</nav>
 		</div>
 
@@ -184,13 +184,14 @@
 	<script src="app/values/firebasecreds.js"></script>
 	<script src="app/factories/AuthFactory.js"></script>
 	<script src="app/factories/DataFactory.js"></script>
+	<script src="app/factories/FireFactory.js"></script>
 
 	<!-- controllers -->
 	<script src="app/controllers/loginctrl.js"></script>
 	<script src="app/controllers/logoutctrl.js"></script>
 	<script src="app/controllers/navctrl.js"></script>
 	<script src="app/controllers/mainctrl.js"></script>
-	<script src="app/controllers/ratingctrl.js"></script>
+	<script src="app/controllers/albumchanges.js"></script>
 
 </body>
 </html>
