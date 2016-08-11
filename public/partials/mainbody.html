@@ -6,7 +6,7 @@
 	<div class="row" ng-repeat="info in chartdata">
 		<div>
 			<!-- ng-repeat through all -->
-			<div id="album {{info.id}}">
+			<div id="album {{info.albumrating}}">
 			<!-- current rank on chart -->
 				<div class="col s1 rank">
 				</div>
@@ -14,10 +14,12 @@
 				<div class="col s2 info">
 				<p><h5><b>{{info.artistname}}</b></h5></p>
 				<p><h5>{{info.albumname}}</h5></p>
-				<p>{{info.release}}</p>
-				<button type="submit">Save</button>
-				<button type="submit">Edit</button>
-				<button type="submit">Delete</button>
+				<p class="hide">{{info.albumrating}}</p>
+				<p class="hide">{{info.tracktotal}}</p>
+				<p class="hide">{{info.type}}</p>
+				<!-- <p>{{info.release}}</p> -->
+				<button class="btn" ng-click="editAlbum(info.id)">Edit</button>
+				<button class="btn" ng-click="deleteAlbum(info.id)">Delete</button>
 				</div>
 				<!-- album artwork -->
 				<div class="col s2 m3 artwork">
@@ -27,16 +29,19 @@
 					<div class="row" ng-repeat="items in info.songs">
 						<!-- track ratings -->
 						<div class="col 3">
-						<form action="#">
+<!-- 						<form action="#">
 							<input name="group1 {{items.name}}" type="radio" id="test1" /><label for="test1"></label>
 							<input name="group1 {{items.name}}" type="radio" id="test2" /><label for="test2"></label>				
 							<input name="group1 {{items.name}}" type="radio" id="test3" /><label for="test3"></label>			
 							<input name="group1 {{items.name}}" type="radio" id="test4" /><label for="test4"></label>				
 							<input name="group1 {{items.name}}" type="radio" id="test5" /><label for="test5"></label>
-						</form>
+						</form> -->
 						</div>
 						<!-- tracks -->
 						<!-- <div class="col s1 ratings" ng-include="'partials/ratings.html'"></div> -->
+						<div class="col s1 tracks">
+						{{items.rating}}
+						</div>
 						<div class="col s1 tracks">
 						{{items.number}}
 						</div>
