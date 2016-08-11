@@ -1,25 +1,21 @@
 "use strict";
 
-app.controller("MainCtrl", function($scope, DataFactory) {
-   // console.log("check");
+app.controller("MainCtrl", function($scope, AuthFactory, FireFactory) {
+  // console.log("check");
 
-   // $scope.userID = AuthFactory.getUser();
+  $scope.userID = AuthFactory.getUser();
 
-   // if (AuthFactory.isAuthenticated()) {
-   //    DataFactory.getAlbums()
-   //       .then((itemCollection) => {
-   //          $scope.items = itemCollection;
-   //       });
-   // } else {}
-
-   // DataFactory.getAlbums()
-   //    .then((object) => {
-   //       $scope.chartdata = object;
-   //    });
-
-   DataFactory.getTopSongs()
+  if (AuthFactory.isAuthenticated()) {
+    FireFactory.getAlbumList()
       .then((object) => {
-         $scope.chartdata = object;
+        $scope.chartdata = object;
       });
+  } else {}
+
+
+  // FireFactory.getTopSongs()
+  //    .then((object) => {
+  //       $scope.chartdata = object;
+  //    });
 
 });

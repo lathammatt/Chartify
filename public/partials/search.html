@@ -1,0 +1,26 @@
+<div class="row">
+	<div>
+		<input type="text" id="albumsearch" name="" value="" placeholder="Album name" ng-model="string">
+<!-- 		<select name="" multiple>
+			<option value="album">Album</option>
+			<option value="artist">Artist</option>
+		</select> -->
+		<button type="submit" ng-click="getSearch()">Search</button>
+		</div>
+
+<div class="row" id="output" ng-repeat="info in chartdata">
+	<div>
+		<div>
+			<input type="checkbox" id="{{info.id}}" ng-checked="" value=""/>
+		</div>
+		<div class="col s2 m3 artwork">
+				<img ng-src="{{info.artwork}}">
+		</div>
+		<div class="col s5 name">
+			<h5>Album: {{info.albumname}}</h5>
+		</div>
+
+		
+
+	</div>
+</div>
