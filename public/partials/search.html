@@ -1,0 +1,29 @@
+<div ng-controller="SearchCtrl">
+	<div class="row">
+		<div class="col s12">
+			<div class="input-field col s4">
+				<input type="text" id="albumsearch" name="" value="" placeholder="Album name" ng-model="query">
+				<button class="btn" type="submit" ng-click="searchCall()">Search</button>
+				<button class="btn" type="submit" ng-click="getAlbumsCall()">Get Selected</button>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="output" ng-repeat="info in chartdata">
+		<div>
+			<div class="col s2">
+				<form action="#">
+			    <p>
+			      <input type="checkbox" id="test1-{{info.id}}" checklist-model="albums.ids" value="{{info.id}}" class="center" ng-click="addIDs(info.id)"/>
+			      <label for="test1-{{info.id}}"></label>
+			    </p>
+		    </form>
+			</div>
+			<div class="col s4 m4 artwork">
+					<img ng-src="{{info.artwork}}">
+			</div>
+			<div class="col s5 name">
+				<h5>{{info.albumname}}</h5>
+			</div>
+		</div>
+	</div>
+</div>
