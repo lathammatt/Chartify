@@ -1,14 +1,24 @@
 "use strict";
 
 app.controller("SearchCtrl", function($scope,
-  DataFactory) {
+  DataFactory, $location) {
 
-  let album = $("#albumsearch").val;
+  $scope.searchCall = function() {
 
-  DataFactory.getSearch(album)
-    .then((object) => {
-      $scope.chartdata = object;
-    })
+    DataFactory.getSearch($scope.query)
+      .then((object) => {
+        $scope.chartdata = object;
+      })
+  }
+
+
+  $scope.albums = {
+    ids: []
+  };
+
+  // $scope.getAlbumsCall = function($scope.albums.ids) {
+  //   DataFactory.getAlbums()
+  // }
 
 
 

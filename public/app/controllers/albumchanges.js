@@ -12,8 +12,8 @@ app.controller('AlbumChangeCtrl', function($scope, FireFactory, $location, AuthF
     uid: null
   };
 
-  $scope.editAlbum = function(albumID) {
-    $scope.newTask.uid = AuthFactory.getUser();
+  $scope.editAlbum = function() {
+    $scope.newAlbum.uid = AuthFactory.getUser();
     FireFactory.postNewAlbum($scope.newAlbum)
       .then(function(response) {
         $location.url("/main");

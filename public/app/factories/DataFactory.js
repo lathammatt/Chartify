@@ -5,7 +5,7 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http) {
   let getSearch = function(album) {
     let chartdata = [];
     return $q(function(resolve, reject) {
-      $http.get(`"https://api.spotify.com/v1/search?q=${album}&type=albumlimit=50"`)
+      $http.get(`https://api.spotify.com/v1/search?q=${album}&type=album&limit=50`)
       // $http.get("app/factories/test2.json")
       .success(function(returnedData) {
         for (var i = 0; i < returnedData.albums.items.length; i++) {
