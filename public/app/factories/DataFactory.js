@@ -25,7 +25,13 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http) {
     });
   };
 
-  let getAlbums = function(albumList) {
+  let albumList = [];
+
+  let setAlbums = function(albums) {
+    albumList = albums;
+  }
+
+  let getAlbums = function() {
     // add albumList to argument
     console.log("albumList", albumList);
     // gets rid of duplicate album ids in data
@@ -69,7 +75,7 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http) {
 
 
   return {
-    getSearch, getAlbums
+    getSearch, getAlbums, setAlbums
   };
 
 });

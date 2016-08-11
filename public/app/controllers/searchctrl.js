@@ -10,15 +10,22 @@ app.controller("SearchCtrl", function($scope,
         $scope.chartdata = object;
       })
   }
+  let albums = [];
+  $scope.addIDs = function(value) {
+    if (albums.indexOf(value) > -1) {
+      albums.push(value);
+    } else {
+      albums.splice(albums.indexOf(value), 1);
+    }
+  }
 
+  // $scope.albums = {
+  //   ids: []
+  // };
 
-  $scope.albums = {
-    ids: []
-  };
-
-  // $scope.getAlbumsCall = function($scope.albums.ids) {
-  //   DataFactory.getAlbums()
-  // }
+  $scope.getAlbumsCall = function() {
+    DataFactory.setAlbums(albums)
+  }
 
 
 

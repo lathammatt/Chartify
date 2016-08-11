@@ -25,8 +25,8 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     return $q(function(resolve, reject) {
       $http.post(`${FirebaseURL}/albums.json`,
         JSON.stringify(newAlbum))
-        .success(function(ObjFromFirebase) {
-          resolve(ObjFromFirebase);
+        .success(function(key) {
+          resolve(key);
         })
         .error(function(error) {
           reject(error);

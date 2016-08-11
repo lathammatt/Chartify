@@ -19,3 +19,8 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory) {
   //    });
 
 });
+
+
+// post album, .then returning albumID
+// for each song in array, song.albumID = albumID
+//
