@@ -21,11 +21,12 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  let postNewAlbum = function(newAlbum) {
+  let postNewAlbum = function(newAlbum, songs) {
     return $q(function(resolve, reject) {
       $http.post(`${FirebaseURL}/albums.json`,
         JSON.stringify(newAlbum))
         .success(function(key) {
+          let albumID = key;
           resolve(key);
         })
         .error(function(error) {
@@ -61,5 +62,8 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
+  return {
+    getAlbumList, deleteAlbum, editAlbum, postNewAlbum
+  };
 
 });

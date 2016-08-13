@@ -11,11 +11,16 @@ app.controller("SearchCtrl", function($scope,
       })
   }
   let albums = [];
+
   $scope.addIDs = function(value) {
     if (albums.indexOf(value) > -1) {
       albums.push(value);
+      console.log("value", value);
     } else {
       albums.splice(albums.indexOf(value), 1);
+      console.log("albums", albums);
+      console.log("2ndvalue", value);
+      albums.push(value);
     }
   }
 
@@ -24,7 +29,9 @@ app.controller("SearchCtrl", function($scope,
   // };
 
   $scope.getAlbumsCall = function() {
-    DataFactory.setAlbums(albums)
+    DataFactory.setAlbums(albums);
+    console.log("albumcall", albums);
+    $location.url("/edit");
   }
 
 

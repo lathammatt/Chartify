@@ -27,5 +27,9 @@ app.config(function($routeProvider, FBCreds) {
     templateUrl: 'partials/search.html',
     controller: 'SearchCtrl'
   }).
+  when('/edit', {
+    templateUrl: 'partials/editalbum.html',
+    controller: 'AlbumChangeCtrl'
+  }).
   otherwise('/main');
 });
