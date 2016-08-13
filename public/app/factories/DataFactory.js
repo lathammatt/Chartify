@@ -95,6 +95,7 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory) {
           albumobj.artwork = returnedData.albums[i].images[1].url;
           albumobj.albumname = returnedData.albums[i].name;
           albumobj.tracktotal = returnedData.albums[i].tracks.total;
+          albumobj.rating = 0;
           let songs = [];
           for (var j = 0; j < returnedData.albums[i].tracks.items.length; j++) {
             let tune = {};

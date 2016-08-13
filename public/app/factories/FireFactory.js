@@ -27,7 +27,23 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
         JSON.stringify(newAlbum))
         .success(function(key) {
           let albumID = key;
+          songs.forEach(song) {
+            song.albumID = albumID;
+          }
+          postNewSongs(songs);
           resolve(key);
+        })
+        .error(function(error) {
+          reject(error);
+        });
+    });
+  };
+
+  let postNewSongs = function(songs) {
+    return $q(function(resolve, reject) {
+      $http.post(`${FirebaseURL}/songs.json`, JSON.stringify(songs))
+        .success(function(object) {
+          resolve(object);
         })
         .error(function(error) {
           reject(error);
@@ -63,7 +79,7 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
   };
 
   return {
-    getAlbumList, deleteAlbum, editAlbum, postNewAlbum
+    getAlbumList, deleteAlbum, editAlbum, postNewAlbum, postNewSongs
   };
 
 });
