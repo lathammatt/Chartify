@@ -3,10 +3,10 @@
 <div class="row"></div>
 <div>
 	
-	<div class="row" ng-repeat="info in chartdata">
+	<div class="row" ng-repeat="info in chartdata | filter: userID">
 		<div>
 			<!-- ng-repeat through all -->
-			<div id="album {{info.id}}">
+			<div id="{{info.id}}">
 			<!-- current rank on chart -->
 				<div class="col s1 rank">
 				</div>
@@ -26,7 +26,7 @@
 				<img ng-src="{{info.artwork}}">
 				</div>
 				<div class="col s5">
-					<div class="row" ng-repeat="items in info.songs">
+					<div class="row" ng-repeat="items in songs | filter:userID | filter: {{info.id}}">
 						<!-- track ratings -->
 						<div class="col 3">
 <!-- 						<form action="#">
@@ -39,7 +39,7 @@
 						</div>
 						<!-- tracks -->
 						<!-- <div class="col s1 ratings" ng-include="'partials/ratings.html'"></div> -->
-						<div class="col s1 tracks">
+						<div class="col s1 rating">
 						{{items.rating}}
 						</div>
 						<div class="col s1 tracks">

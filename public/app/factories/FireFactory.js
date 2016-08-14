@@ -6,15 +6,16 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
     let chartdata = [];
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/albums.json`)
-      // $http.get("app/factories/test.json")
-      .success(function(returnedData) {
-        let songlist = returnedData;
-        Object.keys(songlist).forEach(function(key) {
-          songlist[key].id = key;
-          chartdata.push(songlist[key]);
-        });
-        resolve(chartdata);
-      })
+        .success(function(returnedData) {
+          let songlist = returnedData;
+          Object.keys(songlist).forEach(function(key) {
+            songlist[key].id = key;
+            console.log("key", key);
+            chartdata.push(songlist[key]);
+            console.log("chart", chartdata);
+          });
+          resolve(chartdata);
+        })
         .error(function(error) {
           reject(error);
         });

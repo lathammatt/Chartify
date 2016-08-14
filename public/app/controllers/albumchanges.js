@@ -22,12 +22,12 @@ app.controller('AlbumChangeCtrl', function($scope, FireFactory, $location, AuthF
       });
   } else {}
 
-  $scope.editAlbum = function() {
-    $scope.newAlbum.uid = AuthFactory.getUser();
-    FireFactory.postNewAlbum($scope.newAlbum)
-      .then(function(response) {
-        $location.url("/main");
-      });
-  };
+  // $scope.editAlbum = function() {
+  //   $scope.newAlbum.uid = AuthFactory.getUser();
+  //   FireFactory.postNewAlbum($scope.newAlbum)
+  //     .then(function(response) {
+  //       $location.url("/main");
+  //     });
+  // };
 
 });
