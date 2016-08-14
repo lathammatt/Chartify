@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
+app.factory("FireFactory", function(FirebaseURL, $q, $http) {
 
   let getAlbumList = function() {
     let chartdata = [];
@@ -21,12 +21,30 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  let postNewAlbum = function(newAlbum) {
+  let postNewAlbum = function(newAlbum, songs) {
     return $q(function(resolve, reject) {
       $http.post(`${FirebaseURL}/albums.json`,
         JSON.stringify(newAlbum))
         .success(function(key) {
+          let albumID = key;
+          console.log("albumid", albumID.name);
+          songs.forEach(function(song) {
+            song.albumID = albumID.name;
+          });
+          postNewSongs(songs);
           resolve(key);
+        })
+        .error(function(error) {
+          reject(error);
+        });
+    });
+  };
+
+  let postNewSongs = function(songs) {
+    return $q(function(resolve, reject) {
+      $http.post(`${FirebaseURL}/songs.json`, JSON.stringify(songs))
+        .success(function(object) {
+          resolve(object);
         })
         .error(function(error) {
           reject(error);
@@ -48,18 +66,21 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  let editAlbum = function(dataID) {
-    return $q(function(resolve, reject) {
-      $http.post(`${FirebaseURL}/${dataID}.json`,
-        JSON.stringify(newAlbum))
-        .success(function(ObjFromFirebase) {
-          resolve(ObjFromFirebase);
-        })
-        .error(function(error) {
-          reject(error);
-        });
-    });
-  };
+  // let editAlbum = function(dataID) {
+  //   return $q(function(resolve, reject) {
+  //     $http.post(`${FirebaseURL}/${dataID}.json`,
+  //       JSON.stringify(newAlbum))
+  //       .success(function(ObjFromFirebase) {
+  //         resolve(ObjFromFirebase);
+  //       })
+  //       .error(function(error) {
+  //         reject(error);
+  //       });
+  //   });
+  // };
 
+  return {
+    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs
+  };
 
 });
