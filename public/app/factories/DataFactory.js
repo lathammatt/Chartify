@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFactory) {
+app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFactory, $location) {
 
   let getSearch = function(album) {
     let chartdata = [];
@@ -29,6 +29,9 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFac
 
   let setAlbums = function(albums) {
     albumList = albums;
+    getAlbums();
+    console.log("albumcall", albums);
+    $location.url("/main")
   };
 
   // let getAlbums = function() {

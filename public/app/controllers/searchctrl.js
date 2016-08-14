@@ -22,8 +22,8 @@ app.controller("SearchCtrl", function($scope,
       console.log("albums", albums);
       console.log("2ndvalue", value);
       albums.push(value);
-    };
-  }
+    }
+  };
 
   // $scope.albums = {
   //   ids: []
@@ -31,9 +31,7 @@ app.controller("SearchCtrl", function($scope,
 
   $scope.getAlbumsCall = function() {
     DataFactory.setAlbums(albums);
-    console.log("albumcall", albums);
-    $location.url("/edit");
-  }
+  };
 
 
 
