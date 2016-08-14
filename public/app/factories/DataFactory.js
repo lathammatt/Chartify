@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory) {
+app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFactory) {
 
   let getSearch = function(album) {
     let chartdata = [];
@@ -89,9 +89,10 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory) {
       .success(function(returnedData) {
         for (var i = 0; i < returnedData.albums.length; i++) {
           let albumobj = {};
+          albumobj.uid = AuthFactory.getUser();
           albumobj.type = returnedData.albums[i].album_type;
           albumobj.artistname = returnedData.albums[i].artists[0].name;
-          albumobj.id = returnedData.albums[i].id;
+          albumobj.spotifyID = returnedData.albums[i].id;
           albumobj.artwork = returnedData.albums[i].images[1].url;
           albumobj.albumname = returnedData.albums[i].name;
           albumobj.tracktotal = returnedData.albums[i].tracks.total;
@@ -102,11 +103,13 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory) {
             tune.number = returnedData.albums[i].tracks.items[j].track_number;
             tune.name = returnedData.albums[i].tracks.items[j].name;
             tune.rating = 0;
+            tune.uid = AuthFactory.getUser();
             songs.push(tune);
           }
-          FireFactory.postNewAlbum(albumobj, songs)
+          FireFactory.postNewAlbum(albumobj, songs);
+          chartdata.push(albumobj);
+          console.log("final", albumobj, songs);
         }
-        console.log("final", chartdata);
         resolve(chartdata);
       })
         .error(function(error) {

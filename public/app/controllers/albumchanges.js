@@ -1,16 +1,16 @@
 "use strict";
 
 app.controller('AlbumChangeCtrl', function($scope, FireFactory, $location, AuthFactory, DataFactory) {
-  $scope.newAlbum = {
-    artistname: "",
-    albumname: "",
-    artwork: "",
-    id: null,
-    rating: "",
-    tracktotals: null,
-    songs: "",
-    uid: null
-  };
+  // $scope.newAlbum = {
+  //   artistname: "",
+  //   albumname: "",
+  //   artwork: "",
+  //   id: null,
+  //   rating: "",
+  //   tracktotals: null,
+  //   songs: "",
+  //   uid: null
+  // };
 
   $scope.userID = AuthFactory.getUser();
 

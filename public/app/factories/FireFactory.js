@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
+app.factory("FireFactory", function(FirebaseURL, $q, $http) {
 
   let getAlbumList = function() {
     let chartdata = [];
@@ -27,9 +27,10 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
         JSON.stringify(newAlbum))
         .success(function(key) {
           let albumID = key;
-          songs.forEach(song) {
-            song.albumID = albumID;
-          }
+          console.log("albumid", albumID.name);
+          songs.forEach(function(song) {
+            song.albumID = albumID.name;
+          });
           postNewSongs(songs);
           resolve(key);
         })
@@ -65,21 +66,21 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  let editAlbum = function(dataID) {
-    return $q(function(resolve, reject) {
-      $http.post(`${FirebaseURL}/${dataID}.json`,
-        JSON.stringify(newAlbum))
-        .success(function(ObjFromFirebase) {
-          resolve(ObjFromFirebase);
-        })
-        .error(function(error) {
-          reject(error);
-        });
-    });
-  };
+  // let editAlbum = function(dataID) {
+  //   return $q(function(resolve, reject) {
+  //     $http.post(`${FirebaseURL}/${dataID}.json`,
+  //       JSON.stringify(newAlbum))
+  //       .success(function(ObjFromFirebase) {
+  //         resolve(ObjFromFirebase);
+  //       })
+  //       .error(function(error) {
+  //         reject(error);
+  //       });
+  //   });
+  // };
 
   return {
-    getAlbumList, deleteAlbum, editAlbum, postNewAlbum, postNewSongs
+    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs
   };
 
 });
