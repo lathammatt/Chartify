@@ -83,18 +83,17 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
     });
   };
 
-  // let editAlbum = function(dataID) {
-  //   return $q(function(resolve, reject) {
-  //     $http.post(`${FirebaseURL}/${dataID}.json`,
-  //       JSON.stringify(newAlbum))
-  //       .success(function(ObjFromFirebase) {
-  //         resolve(ObjFromFirebase);
-  //       })
-  //       .error(function(error) {
-  //         reject(error);
-  //       });
-  //   });
-  // };
+  let updateSong = function(songs) {
+    return $q(function(resolve, reject) {
+      $http.post(`${FirebaseURL}/songs.json`, JSON.stringify(songs))
+        .success(function(object) {
+          resolve(object);
+        })
+        .error(function(error) {
+          reject(error);
+        });
+    });
+  };
 
   return {
     getAlbumList, deleteAlbum, postNewAlbum, postNewSongs, getSongList

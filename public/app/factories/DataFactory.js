@@ -59,13 +59,13 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFac
           albumobj.artwork = returnedData.albums[i].images[1].url;
           albumobj.albumname = returnedData.albums[i].name;
           albumobj.tracktotal = returnedData.albums[i].tracks.total;
-          albumobj.rating = 0;
+          albumobj.rating = 1;
           let songs = [];
           for (var j = 0; j < returnedData.albums[i].tracks.items.length; j++) {
             let tune = {};
             tune.number = returnedData.albums[i].tracks.items[j].track_number;
             tune.name = returnedData.albums[i].tracks.items[j].name;
-            tune.rating = 0;
+            tune.rating = 1;
             tune.uid = AuthFactory.getUser();
             songs.push(tune);
           }
