@@ -33,14 +33,15 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
       })
   }
 
-  $scope.NewRating = {
-    albumID: "",
-    rating: 0
-  }
+
 
 
   $scope.updateSongCall = function(song, rating) {
+    // $scope.NewRating.rating = rating;
     console.log("rating", song, rating);
+    FireFactory.updateSong(song, rating)
+
+
 
   };
 
