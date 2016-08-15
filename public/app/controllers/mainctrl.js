@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("MainCtrl", function($scope, AuthFactory, FireFactory) {
+app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location) {
 
   $scope.userID = AuthFactory.getUser();
 
