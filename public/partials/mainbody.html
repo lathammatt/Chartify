@@ -3,13 +3,13 @@
 <div class="row"></div>
 <div>
 	
-	<div class="row" ng-repeat="info in chartdata | filter: userID | orderBy: rating">
+	<div class="row" ng-repeat="info in chartdata | filter: userID">
 		<div>
 			<!-- ng-repeat through all -->
 			<div id="{{info.id}}">
 			<!-- current rank on chart -->
 				<div class="col s1 rank">
-				<p>{{$index+1}}</p>
+				<p><h5>{{$index+1}}<h5></p>
 				</div>
 				<!-- album title and artist -->
 				<div class="col s2 info">

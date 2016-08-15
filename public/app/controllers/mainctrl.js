@@ -53,7 +53,7 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
     console.log("avg", avg);
     let final = parseFloat((avg + (scores.length * 0.00001)).toFixed(5));
     console.log("final", final);
-
+    FireFactory.updateAlbum(albumID, final);
   };
 
   $scope.updateSongCall = function(song, rating, album) {
