@@ -33,6 +33,12 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
       })
   }
 
+  $scope.NewRating = {
+    albumID: ""
+    rating: null
+  }
+
+
   $scope.updateSongCall = function(song, rating) {
     console.log("rating", song, rating);
 
