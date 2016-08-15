@@ -11,10 +11,11 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
           Object.keys(songlist).forEach(function(key) {
             songlist[key].id = key;
             chartdata.push(songlist[key]);
-            console.log("key1", key);
+            console.log("songlist", songlist);
             getSongList(key);
           });
           resolve(chartdata);
+          console.log("chartdata", chartdata);
         })
         .error(function(error) {
           reject(error);
@@ -25,14 +26,19 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
   let getSongList = function(key) {
     let songs = [];
     return $q(function(resolve, reject) {
-      $http.get(`${FirebaseURL}/songs.json`)
+      $http.get(`${FirebaseURL}/songs.json?orderBy="number"`)
         .success(function(returnedData) {
-          songs = returnedData;
-          console.log("songs", songs);
+          let songlist = returnedData;
+          Object.keys(songlist).forEach(function(key) {
+            songlist[key].id = key;
+            songs.push(songlist[key]);
+            console.log("songlist", songlist);
+            console.log("songs", songs);
+          });
           if (songs.albumID === key) {
             console.log("key2", key);
-            resolve(songs);
           }
+          resolve(songs);
         })
         .error(function(error) {
           reject(error);
