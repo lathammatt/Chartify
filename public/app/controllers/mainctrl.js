@@ -29,10 +29,9 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
         FireFactory.getAlbumList()
           .then((object) => {
             $scope.chartdata = object;
-          })
-
-      })
-  }
+          });
+      });
+  };
 
   function updateAlbumScore(albumID) {
     console.log("album", albumID);
@@ -42,8 +41,8 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
       if ($scope.songs[x].albumID === albumID) {
         console.log("id", $scope.songs[x].albumID);
         scores.push(parseInt($scope.songs[x].rating));
-      };
-    };
+      }
+    }
     console.log("scores", scores);
     let sum = scores.reduce(function(a, b) {
       return (a + b);
@@ -53,8 +52,8 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
     console.log("avg", avg);
     let final = parseFloat((avg + (scores.length * 0.00001)).toFixed(5));
     console.log("final", final);
-
-  };
+    FireFactory.updateAlbum(albumID, final);
+  }
 
   $scope.updateSongCall = function(song, rating, album) {
     console.log("rating", song, rating, album);

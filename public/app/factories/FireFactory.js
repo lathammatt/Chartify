@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("FireFactory", function(FirebaseURL, $q, $http, $location) {
+app.factory("FireFactory", function(FirebaseURL, $q, $http) {
 
   let getAlbumList = function() {
     let chartdata = [];
@@ -14,7 +14,10 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, $location) {
             console.log("songlist", songlist);
             getSongList(key);
           });
-          $location.path("/main");
+          chartdata.sort(function(a, b) {
+            return (b.rating) - (a.rating);
+          });
+          // $location.path("/main");
           resolve(chartdata);
           console.log("chartdata", chartdata);
         })
@@ -102,8 +105,21 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, $location) {
     });
   };
 
+  let updateAlbum = function(albumID, score) {
+    return $q(function(resolve, reject) {
+      $http.put(`${FirebaseURL}/albums/${albumID}/rating.json`, score)
+        .success(function(object) {
+          resolve(object);
+        })
+        .error(function(error) {
+          reject(error);
+        });
+    });
+  };
+
+
   return {
-    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs, getSongList, updateSong
+    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs, getSongList, updateSong, updateAlbum
   };
 
 });
