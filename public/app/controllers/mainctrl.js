@@ -22,6 +22,7 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
   } else {}
 
   $scope.deleteAlbumCall = function(album) {
+    FireFactory.deleteSongs(album);
     FireFactory.deleteAlbum(album)
       .then((object) => {
         $scope.chartdata = object;
@@ -60,8 +61,5 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
     FireFactory.updateSong(song, rating);
     updateAlbumScore(album);
   };
-
-
-
 
 });

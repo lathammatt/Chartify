@@ -117,9 +117,28 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
     });
   };
 
+  let deleteSongs = function(albumID) {
+    return $q(function(resolve, reject) {
+      $http.get(`${FirebaseURL}/songs.json?orderBy="albumID"&equalTo="${albumID}"`)
+        .success(function(songs) {
+          console.log("deleting", songs);
+          let songlist = songs;
+          Object.keys(songlist).forEach(function(key) {
+            songlist[key].id = key;
+            console.log("key", key);
+            $http.delete(`${FirebaseURL}/songs/${key}.json`);
+          });
+
+        })
+        .error((error) => {
+          reject(error);
+        });
+    });
+  };
+
 
   return {
-    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs, getSongList, updateSong, updateAlbum
+    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs, getSongList, updateSong, updateAlbum, deleteSongs
   };
 
 });
