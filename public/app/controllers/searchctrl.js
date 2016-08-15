@@ -15,7 +15,6 @@ app.controller("SearchCtrl", function($scope,
 
   $scope.addIDs = function(value) {
     if (albums.indexOf(value) > -1) {
-      // albums.push(value);
       console.log("value", value);
     } else {
       albums.splice(albums.indexOf(value), 1);
@@ -25,9 +24,6 @@ app.controller("SearchCtrl", function($scope,
     }
   };
 
-  // $scope.albums = {
-  //   ids: []
-  // };
 
   $scope.getAlbumsCall = function() {
     DataFactory.setAlbums(albums);
