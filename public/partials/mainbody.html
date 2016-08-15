@@ -9,7 +9,7 @@
 			<div id="{{info.id}}">
 			<!-- current rank on chart -->
 				<div class="col s1 rank">
-				<p><h5>{{$index+1}}<h5></p>
+				<p><h5 class="valign-wrapper">{{$index+1}}<h5></p>
 				</div>
 				<!-- album title and artist -->
 				<div class="col s2 info">
@@ -19,12 +19,11 @@
 				<p class="hide">{{info.tracktotal}}</p>
 				<p class="hide">{{info.type}}</p>
 				<!-- <p>{{info.release}}</p> -->
-				<!-- <button class="btn" ng-click="editAlbum(info.id)">Edit</button> -->
 				<button class="btn" ng-click="deleteAlbumCall(info.id)">Delete</button>
 				</div>
 				<!-- album artwork -->
 				<div class="col s2 m3 artwork">
-				<img ng-src="{{info.artwork}}">
+				<img class="responsive-img" ng-src="{{info.artwork}}">
 				</div>
 				<div class="col s6">
 					<div class="row" ng-repeat="items in songs | filter: userID && info.id | orderBy: number">

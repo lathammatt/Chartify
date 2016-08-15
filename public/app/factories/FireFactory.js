@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("FireFactory", function(FirebaseURL, $q, $http, $location) {
+app.factory("FireFactory", function(FirebaseURL, $q, $http) {
 
   let getAlbumList = function() {
     let chartdata = [];
