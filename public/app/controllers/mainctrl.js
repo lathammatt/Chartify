@@ -4,24 +4,30 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
 
   $scope.userID = AuthFactory.getUser();
 
-  if (AuthFactory.isAuthenticated()) {
-    FireFactory.getAlbumList()
-      .then((object) => {
-        $scope.chartdata = object;
-        $location.path("/main");
-        console.log("scope1", $scope.chartdata);
-      });
-  } else {}
+  let loadDOM = function() {
+    console.log("loading");
+    if (AuthFactory.isAuthenticated()) {
+      FireFactory.getAlbumList($scope.userID)
+        .then((object) => {
+          $scope.chartdata = object;
+          $location.path("/main");
+          console.log("scope1", $scope.chartdata);
+        });
+    } else {}
 
-  if (AuthFactory.isAuthenticated()) {
-    FireFactory.getSongList()
-      .then((object) => {
-        $scope.songs = object;
-        console.log("scope2", $scope.songs);
-      });
-  } else {}
+    if (AuthFactory.isAuthenticated()) {
+      FireFactory.getSongList($scope.userID)
+        .then((object) => {
+          $scope.songs = object;
+          $scope.$apply;
+        });
+    } else {}
+  };
+
+  loadDOM();
 
   $scope.deleteAlbumCall = function(album) {
+    FireFactory.deleteSongs(album);
     FireFactory.deleteAlbum(album)
       .then((object) => {
         $scope.chartdata = object;
@@ -29,17 +35,15 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
         FireFactory.getAlbumList()
           .then((object) => {
             $scope.chartdata = object;
+            // loadDOM();
           });
       });
   };
 
   function updateAlbumScore(albumID) {
-    console.log("album", albumID);
     let scores = [];
     for (var x in $scope.songs) {
-      console.log("forloop", x);
       if ($scope.songs[x].albumID === albumID) {
-        console.log("id", $scope.songs[x].albumID);
         scores.push(parseInt($scope.songs[x].rating));
       }
     }
@@ -53,6 +57,7 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
     let final = parseFloat((avg + (scores.length * 0.00001)).toFixed(5));
     console.log("final", final);
     FireFactory.updateAlbum(albumID, final);
+    // loadDOM();
   }
 
   $scope.updateSongCall = function(song, rating, album) {
@@ -60,8 +65,5 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
     FireFactory.updateSong(song, rating);
     updateAlbumScore(album);
   };
-
-
-
 
 });

@@ -2,10 +2,10 @@
 
 app.factory("FireFactory", function(FirebaseURL, $q, $http) {
 
-  let getAlbumList = function() {
+  let getAlbumList = function(userID) {
     let chartdata = [];
     return $q(function(resolve, reject) {
-      $http.get(`${FirebaseURL}/albums.json`)
+      $http.get(`${FirebaseURL}/albums.json?orderBy="uid"&equalTo="${userID}"`)
         .success(function(returnedData) {
           let songlist = returnedData;
           Object.keys(songlist).forEach(function(key) {
@@ -27,10 +27,10 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
     });
   };
 
-  let getSongList = function() {
+  let getSongList = function(userID) {
     let songs = [];
     return $q(function(resolve, reject) {
-      $http.get(`${FirebaseURL}/songs.json`)
+      $http.get(`${FirebaseURL}/songs.json?orderBy="uid"&equalTo="${userID}"`)
         .success(function(returnedData) {
           let songlist = returnedData;
           Object.keys(songlist).forEach(function(key) {
@@ -117,9 +117,28 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
     });
   };
 
+  let deleteSongs = function(albumID) {
+    return $q(function(resolve, reject) {
+      $http.get(`${FirebaseURL}/songs.json?orderBy="albumID"&equalTo="${albumID}"`)
+        .success(function(songs) {
+          console.log("deleting", songs);
+          let songlist = songs;
+          Object.keys(songlist).forEach(function(key) {
+            songlist[key].id = key;
+            console.log("key", key);
+            $http.delete(`${FirebaseURL}/songs/${key}.json`);
+          });
+
+        })
+        .error((error) => {
+          reject(error);
+        });
+    });
+  };
+
 
   return {
-    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs, getSongList, updateSong, updateAlbum
+    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs, getSongList, updateSong, updateAlbum, deleteSongs
   };
 
 });

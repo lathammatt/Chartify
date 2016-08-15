@@ -8,10 +8,10 @@ app.controller("NavCtrl", function($scope) {
     name: "Search",
     url: "#/search"
   }, {
-    name: "Main Albums",
+    name: "Albums",
     url: "#/main"
   }, {
-    name: "",
+    name: "Refresh",
     url: ""
   }, {
     name: "Connect to Spotify",

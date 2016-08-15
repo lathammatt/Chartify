@@ -1,15 +1,18 @@
 <!-- <div ng-include="partials/navbar.html"></div> -->
-<!-- <h1>Checking</h1> -->
+<div class="row navbar fixed">
+	
+<input type="text" class="form-control col s2 offset-s1" value="" id="search" placeholder="Find Album" ng-model="searchText">
+</div>
 <div class="row"></div>
 <div>
 	
-	<div class="row" ng-repeat="info in chartdata | filter: userID">
+	<div class="row" ng-repeat="info in chartdata | filter: userID && searchText">
 		<div>
 			<!-- ng-repeat through all -->
 			<div id="{{info.id}}">
 			<!-- current rank on chart -->
 				<div class="col s1 rank">
-				<p><h5 class="valign-wrapper">{{$index+1}}<h5></p>
+				<p><h5>{{$index+1}}<h5></p>
 				</div>
 				<!-- album title and artist -->
 				<div class="col s2 info">
