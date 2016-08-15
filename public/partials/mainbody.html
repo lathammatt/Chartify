@@ -31,7 +31,7 @@
 						<div class="col 1">
 							  <form action="#">
     <div class="range-field">
-      <input type="range" id="{{items.id}}" min="1" max="5" value="{{items.rating}}" ng-change="updateSongCall(items.id, model.value)" ng-model="model.value"/>
+      <input type="range" id="{{items.id}}" min="1" max="5" ng-value="{{items.rating}}" ng-change="updateSongCall(items.id, items.rating)" ng-model="items.rating"/>
     </div>
   </form>
 						</div>

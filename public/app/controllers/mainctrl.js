@@ -8,6 +8,7 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
     FireFactory.getAlbumList()
       .then((object) => {
         $scope.chartdata = object;
+        $location.path("/main");
         console.log("scope1", $scope.chartdata);
       });
   } else {}

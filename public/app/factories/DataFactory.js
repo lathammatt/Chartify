@@ -6,19 +6,18 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFac
     let chartdata = [];
     return $q(function(resolve, reject) {
       $http.get(`https://api.spotify.com/v1/search?q=${album}&type=album&limit=50`)
-      // $http.get("app/factories/test2.json")
-      .success(function(returnedData) {
-        for (var i = 0; i < returnedData.albums.items.length; i++) {
-          let obj = {};
-          obj.type = returnedData.albums.items[i].album_type;
-          obj.id = returnedData.albums.items[i].id;
-          obj.artwork = returnedData.albums.items[i].images[1].url;
-          obj.albumname = returnedData.albums.items[i].name;
-          chartdata.push(obj);
-        }
-        console.log("final", chartdata);
-        resolve(chartdata);
-      })
+        .success(function(returnedData) {
+          for (var i = 0; i < returnedData.albums.items.length; i++) {
+            let obj = {};
+            obj.type = returnedData.albums.items[i].album_type;
+            obj.id = returnedData.albums.items[i].id;
+            obj.artwork = returnedData.albums.items[i].images[1].url;
+            obj.albumname = returnedData.albums.items[i].name;
+            chartdata.push(obj);
+          }
+          console.log("final", chartdata);
+          resolve(chartdata);
+        })
         .error(function(error) {
           reject(error);
         });

@@ -8,9 +8,6 @@ app.controller("NavCtrl", function($scope) {
     name: "Search",
     url: "#/search"
   }, {
-    name: "Save Changes",
-    url: ""
-  }, {
     name: "Sort Albums",
     url: ""
   }, {
