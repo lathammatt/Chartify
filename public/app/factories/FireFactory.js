@@ -10,11 +10,29 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
           let songlist = returnedData;
           Object.keys(songlist).forEach(function(key) {
             songlist[key].id = key;
-            console.log("key", key);
             chartdata.push(songlist[key]);
-            console.log("chart", chartdata);
+            console.log("key1", key);
+            getSongList(key);
           });
           resolve(chartdata);
+        })
+        .error(function(error) {
+          reject(error);
+        });
+    });
+  };
+
+  let getSongList = function(key) {
+    let songs = [];
+    return $q(function(resolve, reject) {
+      $http.get(`${FirebaseURL}/songs.json`)
+        .success(function(returnedData) {
+          songs = returnedData;
+          console.log("songs", songs);
+          if (songs.albumID === key) {
+            console.log("key2", key);
+            resolve(songs);
+          }
         })
         .error(function(error) {
           reject(error);
@@ -28,11 +46,10 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
         JSON.stringify(newAlbum))
         .success(function(key) {
           let albumID = key;
-          console.log("albumid", albumID.name);
           songs.forEach(function(song) {
             song.albumID = albumID.name;
+            postNewSongs(song);
           });
-          postNewSongs(songs);
           resolve(key);
         })
         .error(function(error) {
@@ -43,6 +60,7 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
 
   let postNewSongs = function(songs) {
     return $q(function(resolve, reject) {
+      console.log("songsfunct", songs);
       $http.post(`${FirebaseURL}/songs.json`, JSON.stringify(songs))
         .success(function(object) {
           resolve(object);
@@ -53,11 +71,9 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
     });
   };
 
-  var deleteAlbum = function(dataID) {
+  var deleteAlbum = function(albumID) {
     return $q((resolve, reject) => {
-      $http.delete(
-        `${FirebaseURL}/${dataID}.json`
-      )
+      $http.delete(`${FirebaseURL}/albums/${albumID}.json`)
         .success((data) => {
           resolve(data);
         })
@@ -81,7 +97,7 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
   // };
 
   return {
-    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs
+    getAlbumList, deleteAlbum, postNewAlbum, postNewSongs, getSongList
   };
 
 });

@@ -8,9 +8,29 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory) {
     FireFactory.getAlbumList()
       .then((object) => {
         $scope.chartdata = object;
+        console.log("scope1", $scope.chartdata);
       });
   } else {}
 
+  if (AuthFactory.isAuthenticated()) {
+    FireFactory.getSongList()
+      .then((object) => {
+        $scope.songs = object;
+        console.log("scope2", $scope.songs);
+      });
+  } else {}
 
+  $scope.deleteAlbumCall = function(album) {
+    FireFactory.deleteAlbum(album)
+      .then((object) => {
+        $scope.chartdata = object;
+        $location.path("/main");
+        FireFactory.getAlbumList()
+          .then((object) => {
+            $scope.chartdata = object;
+          })
+
+      })
+  }
 
 });

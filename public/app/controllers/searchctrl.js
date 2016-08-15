@@ -1,7 +1,7 @@
 "use strict";
 
 app.controller("SearchCtrl", function($scope,
-  DataFactory, $location) {
+  DataFactory) {
 
   $scope.searchCall = function() {
 
