@@ -3,7 +3,7 @@
 <div class="row"></div>
 <div>
 	
-	<div class="row" ng-repeat="info in chartdata | filter: userID">
+	<div class="row" ng-repeat="info in chartdata | filter: userID | orderBy: rating">
 		<div>
 			<!-- ng-repeat through all -->
 			<div id="{{info.id}}">
@@ -14,38 +14,36 @@
 				<div class="col s2 info">
 				<p><h5><b>{{info.artistname}}</b></h5></p>
 				<p><h5>{{info.albumname}}</h5></p>
-				<p class="hide">{{info.albumrating}}</p>
+				<p class="hide">{{info.rating}}</p>
 				<p class="hide">{{info.tracktotal}}</p>
 				<p class="hide">{{info.type}}</p>
 				<!-- <p>{{info.release}}</p> -->
 				<button class="btn" ng-click="editAlbum(info.id)">Edit</button>
-				<button class="btn" ng-click="deleteAlbum(info.id)">Delete</button>
+				<button class="btn" ng-click="deleteAlbumCall(info.id)">Delete</button>
 				</div>
 				<!-- album artwork -->
 				<div class="col s2 m3 artwork">
 				<img ng-src="{{info.artwork}}">
 				</div>
 				<div class="col s5">
-					<div class="row" ng-repeat="items in songs | filter:userID | filter: {{info.id}}">
+					<div class="row" ng-repeat="items in songs">
 						<!-- track ratings -->
-						<div class="col 3">
-<!-- 						<form action="#">
-							<input name="group1 {{items.name}}" type="radio" id="test1" /><label for="test1"></label>
-							<input name="group1 {{items.name}}" type="radio" id="test2" /><label for="test2"></label>				
-							<input name="group1 {{items.name}}" type="radio" id="test3" /><label for="test3"></label>			
-							<input name="group1 {{items.name}}" type="radio" id="test4" /><label for="test4"></label>				
-							<input name="group1 {{items.name}}" type="radio" id="test5" /><label for="test5"></label>
-						</form> -->
+						<div class="col 1">
+							  <form action="#">
+    <div class="range-field">
+      <input type="range" id="{{items.id}}" min="1" max="5" value="{{items.rating}}" ng-change="updateSongCall(items.id, value)" ng-model="NewRating"/>
+    </div>
+  </form>
 						</div>
 						<!-- tracks -->
-						<!-- <div class="col s1 ratings" ng-include="'partials/ratings.html'"></div> -->
-						<div class="col s1 rating">
-						{{items.rating}}
-						</div>
+
+<!-- 						<div class="col s1 rating">
+						{{items.rating}} -->
+	<!-- 					</div> -->
 						<div class="col s1 tracks">
 						{{items.number}}
 						</div>
-						<div class="col s8 title">
+						<div class="col s3 title">
 						{{items.name}}
 						</div>
 					</div>
@@ -60,5 +58,3 @@
 	</div> -->
 
 </div>
-
-
