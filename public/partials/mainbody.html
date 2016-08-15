@@ -9,6 +9,7 @@
 			<div id="{{info.id}}">
 			<!-- current rank on chart -->
 				<div class="col s1 rank">
+				<p>{{$index+1}}</p>
 				</div>
 				<!-- album title and artist -->
 				<div class="col s2 info">
@@ -25,13 +26,13 @@
 				<div class="col s2 m3 artwork">
 				<img ng-src="{{info.artwork}}">
 				</div>
-				<div class="col s5">
+				<div class="col s6">
 					<div class="row" ng-repeat="items in songs | filter: userID && info.id | orderBy: number">
 						<!-- track ratings -->
 						<div class="col 1">
 							  <form action="#">
     <div class="range-field">
-      <input type="range" id="{{items.id}}" min="1" max="5" ng-value="{{items.rating}}" ng-change="updateSongCall(items.id, items.rating)" ng-model="items.rating"/>
+      <input type="range" id="{{items.id}}" min="1" max="5" value="{{items.rating}}" ng-change="updateSongCall(items.id, items.rating, info.id)" ng-model="items.rating"/>
     </div>
   </form>
 						</div>
@@ -43,7 +44,7 @@
 						<div class="col s1 tracks">
 						{{items.number}}
 						</div>
-						<div class="col s3 title">
+						<div class="col s4 title">
 						{{items.name}}
 						</div>
 					</div>

@@ -27,10 +27,9 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, $location) {
   let getSongList = function() {
     let songs = [];
     return $q(function(resolve, reject) {
-      $http.get(`${FirebaseURL}/songs.json?orderBy="number"`)
+      $http.get(`${FirebaseURL}/songs.json`)
         .success(function(returnedData) {
           let songlist = returnedData;
-          // songlist.orderByChild("number");
           Object.keys(songlist).forEach(function(key) {
             songlist[key].id = key;
             songs.push(songlist[key]);
@@ -40,9 +39,6 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http, $location) {
             console.log("songlist", songlist);
             console.log("songs", songs);
           });
-          // if (songs.albumID === key) {
-          //   console.log("key2", key);
-          // }
           resolve(songs);
         })
         .error(function(error) {
