@@ -35,7 +35,7 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
 
   $scope.NewRating = {
     albumID: "",
-    rating: ""
+    rating: 0
   }
 
 
