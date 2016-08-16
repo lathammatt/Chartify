@@ -11,6 +11,7 @@ app.controller("SearchCtrl", function($scope,
       });
   };
 
+  // temp store for selected albums
   let albums = [];
 
   $scope.addIDs = function(value) {

@@ -9,15 +9,10 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link type="text/css" rel="stylesheet" href="lib/bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
 	<link rel="stylesheet" href="/styles/main.css">
-	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+
 <!-- 		<!-- third party -->
 	<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- 	<script src="lib/bower_components/materialize/dist/js/materialize.min.js"></script>
-	<script src="lib/bower_components/angular/angular.min.js"></script>
-	<script src="lib/bower_components/angular-route/angular-route.min.js"></script>
-	<script src="lib/node_modules/angular-animate/angular-animate.js"></script>
-	<script src="lib/bower_components/firebase/firebase.js"></script>
-	<script src="lib/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script> -->
+
 </head>
 <body ng-app="ChartApp">
 <!-- <div ng-include="'partials/navbar.html'"></div> -->
@@ -63,34 +58,9 @@
           <img width="30" src="{{images.0.url}}" />
       {{display_name}}
       <a href="#" ng-click="getTopSongs()">  Import Music</a>
-<!--         <div>
-        </div> -->
-<!--         <div class="media-body">
-          <dl class="dl-horizontal"> -->
-            <!-- <dt>Logged In:</dt><dd class="clearfix">{{display_name}}</dd> -->
-<!--             <dt>Id</dt><dd>{{id}}</dd>
-            <dt>Email</dt><dd>{{email}}</dd>
-            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
-            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
-            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
-            <dt>Country</dt><dd>{{country}}</dd> -->
-<!--           </dl>
-        </div> -->
     </script>
 
-<!--     <script id="oauth-template" type="text/x-handlebars-template">
-      <h2>oAuth info</h2>
-      <dl class="dl-horizontal">
-        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
-        <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}></dd>
-      </dl>
-    </script> -->
-
-
-
-
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
-    <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
     <script>
       (function() {
 
@@ -170,14 +140,14 @@
       })();
     </script>
 
-	<!-- <div ng-include="partials/sidebar.html"> -->
-	<!-- <div>  remove container class -->
 
 		<div ng-view></div>
   </div> <!-- container -->
 	
-      <!-- third party -->
-  <!-- <script src="lib/bower_components/jquery/dist/jquery.min.js"></script> -->
+
+
+
+  <!-- third party -->
   <script src="lib/bower_components/materialize/dist/js/materialize.min.js"></script>
   <script src="lib/bower_components/angular/angular.min.js"></script>
   <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
@@ -199,7 +169,6 @@
 	<script src="app/controllers/logoutctrl.js"></script>
 	<script src="app/controllers/navctrl.js"></script>
 	<script src="app/controllers/mainctrl.js"></script>
-  <script src="app/controllers/albumchanges.js"></script>
 	<script src="app/controllers/searchctrl.js"></script>
 
 </body>
