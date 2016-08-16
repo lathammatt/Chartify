@@ -2,6 +2,8 @@
 
 app.factory("FireFactory", function(FirebaseURL, $q, $http) {
 
+
+
   let getAlbumList = function(userID) {
     let chartdata = [];
     return $q(function(resolve, reject) {
@@ -11,15 +13,12 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
           Object.keys(songlist).forEach(function(key) {
             songlist[key].id = key;
             chartdata.push(songlist[key]);
-            console.log("songlist", songlist);
-            getSongList(key);
+            getSongList(userID);
           });
           chartdata.sort(function(a, b) {
             return (b.rating) - (a.rating);
           });
-          // $location.path("/main");
           resolve(chartdata);
-          console.log("chartdata", chartdata);
         })
         .error(function(error) {
           reject(error);
@@ -39,8 +38,6 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
             songs.sort(function(a, b) {
               return (a.number) - (b.number);
             });
-            console.log("songlist", songlist);
-            console.log("songs", songs);
           });
           resolve(songs);
         })
@@ -57,6 +54,7 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
         .success(function(key) {
           let albumID = key;
           songs.forEach(function(song) {
+            // matches album FBname to saved value in songs
             song.albumID = albumID.name;
             postNewSongs(song);
           });
@@ -121,11 +119,9 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/songs.json?orderBy="albumID"&equalTo="${albumID}"`)
         .success(function(songs) {
-          console.log("deleting", songs);
           let songlist = songs;
           Object.keys(songlist).forEach(function(key) {
             songlist[key].id = key;
-            console.log("key", key);
             $http.delete(`${FirebaseURL}/songs/${key}.json`);
           });
           resolve(songlist);

@@ -2,6 +2,8 @@
 
 app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFactory, $location) {
 
+
+  // to get albums from search via spotify
   let getSearch = function(album) {
     let chartdata = [];
     return $q(function(resolve, reject) {
@@ -15,7 +17,6 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFac
             obj.albumname = returnedData.albums.items[i].name;
             chartdata.push(obj);
           }
-          console.log("final", chartdata);
           resolve(chartdata);
         })
         .error(function(error) {
@@ -24,24 +25,22 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFac
     });
   };
 
+
+  // to save albums selected from search using setAlbums, then applying to getAlbums
   let albumList = [];
 
   let setAlbums = function(albums) {
     albumList = albums;
     getAlbums();
-    console.log("albumcall", albums);
   };
 
-
+  // get albums and their songs selected from search
   let getAlbums = function() {
-    // add albumList to argument
-    console.log("albumList", albumList);
-    // gets rid of duplicate album ids in data
+    // get rid of any duplicate album ids in data
     let filtered = [];
     $.each(albumList, function(i, j) {
       if ($.inArray(j, filtered) === -1) filtered.push(j);
     });
-    console.log("filtered", filtered);
     let query = filtered.join(",");
     let chartdata = [];
     return $q(function(resolve, reject) {
@@ -68,7 +67,6 @@ app.factory("DataFactory", function(FirebaseURL, $q, $http, FireFactory, AuthFac
             }
             FireFactory.postNewAlbum(albumobj, songs);
             chartdata.push(albumobj);
-            console.log("final", albumobj, songs);
           }
           resolve(chartdata);
           $location.url("/main");

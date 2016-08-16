@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("ChartApp", ['ngRoute']) //,'ngAnimate', 'ui.bootstrap'])
+var app = angular.module("ChartApp", ['ngRoute'])
   .constant('FirebaseURL', "https://albumchart-f528c.firebaseio.com/");
 
 app.config(function($routeProvider, FBCreds) {
@@ -26,10 +26,6 @@ app.config(function($routeProvider, FBCreds) {
   when('/search', {
     templateUrl: 'partials/search.html',
     controller: 'SearchCtrl'
-  }).
-  when('/edit', {
-    templateUrl: 'partials/editalbum.html',
-    controller: 'AlbumChangeCtrl'
   }).
   otherwise('/main');
 });
