@@ -1,14 +1,59 @@
-.container {
-	margin: 0px;
-	width: 100%
+body {
+	font-family: 'Nunito', 'Material Icons', sans-serif;
+	background-color: white;
+}
+
+.container-fluid {
+	margin: 0px 0px 0px 5px;
+	width: 100%;
+}
+.navwrapper {
+	background-color: #51A68E;
+}
+
+a:hover {
+	color: #4EBF7F;
+}
+
+button:hover{
+	color: #A7D9B3;
+}
+
+img {
+	padding-bottom: 45px;
+	padding-top: 15px;
+}
+
+.btn {
+	background-color: #51A68E;
+}
+
+.wholealbum {
+	border-bottom: 3px solid #8BD9CA;
+	border-radius: 15px;
+	background: linear-gradient(white, 75%, #E0DDE0);
+	padding: 35px 0 35px 0;
+}
+
+input{
+	color: black;
 }
 
 #logo h4 {
-	margin: 12.5px 0 0 0;
+	margin: 12.5px 25px 0 0;
+	font-family: 'Lobster', 'Nunito', cursive;
+}
+
+.rank {
+	border: 2px black solid;
+	border-radius: 25px;
+	margin: 15px 0 15px 15px;
+	background-color: #F5574E;
 }
 
 .rank h5 {
-	padding: 100% 0 0 40%;
+	font-size: 200%;
+	text-align: center;
 }
 
 .spacer {

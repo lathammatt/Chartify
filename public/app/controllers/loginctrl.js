@@ -9,7 +9,7 @@ app.controller("LogInCtrl", function($scope, $location, AuthFactory) {
       .then(function(result) {
         var user = result.user.uid;
         console.log("logged in ", user);
-        $location.path("/main");
+        $location.url("/main");
         $scope.$apply();
       }).catch(function(error) {
         // Handle Errors here.
