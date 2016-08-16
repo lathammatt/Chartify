@@ -6,7 +6,7 @@
 <div class="row"></div>
 <div>
 	
-	<div class="row" ng-repeat="info in chartdata | filter: userID && searchText">
+	<div class="row wholealbum" ng-repeat="info in chartdata | filter: userID && searchText">
 		<div>
 			<!-- ng-repeat through all -->
 			<div id="{{info.id}}">
@@ -22,7 +22,7 @@
 				<p class="hide">{{info.tracktotal}}</p>
 				<p class="hide">{{info.type}}</p>
 				<!-- <p>{{info.release}}</p> -->
-				<button class="btn" ng-click="deleteAlbumCall(info.id)">Delete</button>
+				<button class="btn dlte waves-red" ng-click="deleteAlbumCall(info.id)">Delete</button>
 				</div>
 				<!-- album artwork -->
 				<div class="col s2 m3 artwork">
@@ -31,7 +31,7 @@
 				<div class="col s6">
 					<div class="row" ng-repeat="items in songs | filter: userID && info.id | orderBy: number">
 						<!-- track ratings -->
-						<div class="col 1">
+						<div class="col">
 							  <form action="#">
     <div class="range-field">
       <input type="range" id="{{items.id}}" min="1" max="5" value="{{items.rating}}" ng-change="updateSongCall(items.id, items.rating, info.id)" ng-model="items.rating"/>
@@ -46,7 +46,7 @@
 						<div class="col s1 tracks">
 						{{items.number}}
 						</div>
-						<div class="col s4 title">
+						<div class="col s7 title">
 						{{items.name}}
 						</div>
 					</div>

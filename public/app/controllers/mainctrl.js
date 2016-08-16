@@ -31,11 +31,11 @@ app.controller("MainCtrl", function($scope, AuthFactory, FireFactory, $location)
     FireFactory.deleteAlbum(album)
       .then((object) => {
         $scope.chartdata = object;
-        $location.path("/main");
+        $location.url("/main");
         FireFactory.getAlbumList()
           .then((object) => {
             $scope.chartdata = object;
-            // loadDOM();
+            loadDOM();
           });
       });
   };

@@ -4,39 +4,40 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Chartify: A web app to rank your favorite albums</title>
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Nunito" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link type="text/css" rel="stylesheet" href="lib/bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
 	<link rel="stylesheet" href="/styles/main.css">
 	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
-		<!-- third party -->
+<!-- 		<!-- third party -->
 	<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="lib/bower_components/materialize/dist/js/materialize.min.js"></script>
+<!-- 	<script src="lib/bower_components/materialize/dist/js/materialize.min.js"></script>
 	<script src="lib/bower_components/angular/angular.min.js"></script>
 	<script src="lib/bower_components/angular-route/angular-route.min.js"></script>
 	<script src="lib/node_modules/angular-animate/angular-animate.js"></script>
 	<script src="lib/bower_components/firebase/firebase.js"></script>
-	<script src="lib/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+	<script src="lib/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script> -->
 </head>
 <body ng-app="ChartApp">
 <!-- <div ng-include="'partials/navbar.html'"></div> -->
-    <div class="container">
     <div class="navbar-fixed">
-			<nav class="navwrapper #26a69a teal lighten-1" ng-controller="NavCtrl">
-				<div class="row">
-					<div class="col s10">
-						<ul id="nav-mobile" class="center hide-on-med-and-down" ng-repeat="link in navItems">
-							<li><a href="{{link.url}}">{{link.name}}</a></li>
-						</ul>
-							<div id="user-profile"></div>
-					</div>
+      <nav class="navwrapper" ng-controller="NavCtrl">
+        <div class="row">
+          <div class="col s10">
+            <ul id="nav-mobile" class="center hide-on-med-and-down" ng-repeat="link in navItems">
+              <li><a href="{{link.url}}">{{link.name}}</a></li>
+            </ul>
+              <div id="user-profile"></div>
+          </div>
 
-					<div class="col s2 center" id="logo">
-						<h4>Chartify</h4>
-					</div>
-				</div> 
-			</nav>
-		</div>
+          <div class="col s2 center" id="logo">
+            <h4>Chartify</h4>
+          </div>
+        </div> 
+      </nav>
+    </div>
+  <div class="container-fluid">
 
 
 		<!-- all the spotify login material -->
@@ -52,7 +53,7 @@
         </div> -->
         <!-- <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button> -->
       </div>
-    </div>
+    <!-- </div> -->
 
 
     <!-- <script src="/app/app.js" type="text/javascript" charset="utf-8" async defer></script> -->
@@ -170,12 +171,19 @@
     </script>
 
 	<!-- <div ng-include="partials/sidebar.html"> -->
-	<div> <!-- remove container class-->
+	<!-- <div>  remove container class -->
 
 		<div ng-view></div>
-	</div> <!-- container -->
+  </div> <!-- container -->
 	
-
+      <!-- third party -->
+  <!-- <script src="lib/bower_components/jquery/dist/jquery.min.js"></script> -->
+  <script src="lib/bower_components/materialize/dist/js/materialize.min.js"></script>
+  <script src="lib/bower_components/angular/angular.min.js"></script>
+  <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="lib/node_modules/angular-animate/angular-animate.js"></script>
+  <script src="lib/bower_components/firebase/firebase.js"></script>
+  <script src="lib/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
 
 
 	<!-- application scripts -->

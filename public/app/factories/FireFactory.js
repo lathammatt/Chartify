@@ -128,7 +128,7 @@ app.factory("FireFactory", function(FirebaseURL, $q, $http) {
             console.log("key", key);
             $http.delete(`${FirebaseURL}/songs/${key}.json`);
           });
-
+          resolve(songlist);
         })
         .error((error) => {
           reject(error);
