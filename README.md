@@ -22,4 +22,4 @@ I am a music addict and a data junkie as well. I always enjoyed creating my own 
 
 
 
-![Chartify](/screenshot.png?raw=true "chartify screenshot")
+![Chartify](/chartscreen.png?raw=true "chartify screenshot")
